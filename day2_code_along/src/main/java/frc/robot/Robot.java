@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
 
   private DoubleSolenoid solenoid;
 
-  private DigitalInput breakbeam;
+  private DigitalInput sensor;
 
   @Override
   public void robotInit() {
@@ -55,7 +55,7 @@ public class Robot extends TimedRobot {
 
     solenoid = new DoubleSolenoid(0, 1, 2);
 
-    breakbeam = new DigitalInput(1);
+    sensor = new DigitalInput(1);
   }
 
   /**
@@ -83,7 +83,7 @@ public class Robot extends TimedRobot {
     else if(solenoidBackwardButton.get()){
       solenoid.set(Value.kReverse);
     }
-    else if(breakbeam.get()){
+    else if(sensor.get()){
       System.out.println("motion detected");
     }
   }

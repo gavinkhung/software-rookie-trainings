@@ -78,6 +78,7 @@ public class Robot extends TimedRobot {
       left.set(ControlMode.PercentOutput, -1);
     }
     else if(solenoidForwardButton.get()){
+      // import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
       solenoid.set(Value.kForward);
     }
     else if(solenoidBackwardButton.get()){

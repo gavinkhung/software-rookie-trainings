@@ -46,12 +46,12 @@ public class Robot extends TimedRobot {
 
     joystick = new Joystick(0);
     motorForwardButton = new JoystickButton(joystick, 1);
-    motorBackwardButton = new JoystickButton(joystick, 1);
-    solenoidForwardButton = new JoystickButton(joystick, 1);
-    solenoidBackwardButton = new JoystickButton(joystick, 1);
+    motorBackwardButton = new JoystickButton(joystick, 2);
+    solenoidForwardButton = new JoystickButton(joystick, 3);
+    solenoidBackwardButton = new JoystickButton(joystick, 4);
 
     right = new TalonSRX(0);
-    left = new TalonSRX(0);
+    left = new TalonSRX(1);
 
     solenoid = new DoubleSolenoid(0, 1, 2);
 
@@ -79,7 +79,7 @@ public class Robot extends TimedRobot {
     }
     else if(solenoidForwardButton.get()){
       solenoid.set(Value.kForward);
-    }
+    }    
     else if(solenoidBackwardButton.get()){
       solenoid.set(Value.kReverse);
     }

@@ -1,15 +1,17 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2019 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
+/*
+In order to use the TalonSRX class, you must add the Phoenix library with
+http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
+1. type: Control + Shift + P
+2. select: WPILIB: Manage Vendor Libraries
+3. select: Install new library (online)
+4. paste: http://devsite.ctr-electronics.com/maven/release/com/ctre/phoenix/Phoenix-latest.json
+*/
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.Arm;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -22,6 +24,9 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
+  public static OI oi;
+  public static Arm arm;
+
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -31,6 +36,9 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+
+    oi = new OI();
+    arm = new Arm();
   }
 
   /**

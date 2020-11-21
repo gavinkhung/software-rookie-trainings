@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
   private TalonSRX left, right;
   private AHRS navX;
   
-  private double angle;
+  private double error;
 
 
   public void robotInit() {
@@ -40,31 +40,16 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     // get the current angle
-    angle = 90-navX.getYaw();
+    error = 90-navX.getYaw();
 
     // multiply by a constant
-    double amount = 0.1 * angle;
+    double motorOutput = 0.1 * error;
 
     // check to see if the angle is equal to 90
     // otherwise, turn the robot
 
-    if(angle>90){
-      // turn left
-
-      left.set(ControlMode.PercentOutput, -amount);
-      right.set(ControlMode.PercentOutput, amount);
-    }
-    else if(angle<90){
-      // turn right
-
-      left.set(ControlMode.PercentOutput, amount);
-      right.set(ControlMode.PercentOutput, -amount);
-    }
-    else {
-      // do not move
-      left.set(ControlMode.PercentOutput, 0);
-      right.set(ControlMode.PercentOutput, 0);
-    }
+    left.set(ControlMode.PercentOutput, motorOutput);
+    right.set(ControlMode.PercentOutput, -motorOutput);
   }
 
   

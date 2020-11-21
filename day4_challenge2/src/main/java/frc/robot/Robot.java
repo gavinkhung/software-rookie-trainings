@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
     CommandScheduler.getInstance().run();
 
     // get the current angle
-    angle = navX.getYaw();
+    angle = 90-navX.getYaw();
 
     // multiply by a constant
     double amount = 0.1 * angle;

@@ -1,0 +1,13 @@
+[
+  {
+    "name": "drivetrainRobotJava (in project drivetrainRobotJava)",
+    "file": "/Users/Sooraj/Documents/Programming/mvrt/2021/drivetrainRobotJava/build/libs/drivetrainRobotJava.jar",
+    "extensions": [
+      "/Users/Sooraj/Documents/Programming/mvrt/2021/drivetrainRobotJava/build/tmp/expandedArchives/halsim_gui-2021.2.1-osxx86-64.zip_d486575893732cad45e9b59326bc8aaa/osx/x86-64/shared/libhalsim_gui.dylib",
+      "/Users/Sooraj/Documents/Programming/mvrt/2021/drivetrainRobotJava/build/tmp/expandedArchives/halsim_ds_socket-2021.2.1-osxx86-64.zip_93f3f7d0cd7149c33a4ab2f56c0bd5f6/osx/x86-64/shared/libhalsim_ds_socket.dylib"
+    ],
+    "env": {},
+    "librarydir": "/Users/Sooraj/Documents/Programming/mvrt/2021/drivetrainRobotJava/build/tmp/jniExtractDir",
+    "mainclass": "frc.robot.Main"
+  }
+]

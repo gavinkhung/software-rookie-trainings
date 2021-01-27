@@ -94,7 +94,7 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
 
     // Set the default command for drivetrain as the DeadReckoning command
-    drivetrain.setDefaultCommand( new DeadReckoning( 3, 1 ) );
+    drivetrain.setDefaultCommand( new DeadReckoning( 0.89, 1 ) );
 
   }
 

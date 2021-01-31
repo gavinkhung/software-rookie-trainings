@@ -7,7 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.BangBang;
 import frc.robot.commands.DeadReckoning;
+import frc.robot.commands.Drive;
 import frc.robot.subsystems.Drivetrain;
 
 /**
@@ -94,7 +96,14 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
 
     // Set the default command for drivetrain as the DeadReckoning command
-    drivetrain.setDefaultCommand( new DeadReckoning( 0.89, 1 ) );
+    if( oi.getDeadReckoningButton() )
+    {
+      new DeadReckoning( 5, 1 ).schedule();
+    } 
+    if( oi.getBangBangButton() )
+    {
+       new BangBang( 5, 1 ).schedule() ;
+    } 
 
   }
 

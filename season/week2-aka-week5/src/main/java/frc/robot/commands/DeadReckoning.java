@@ -27,7 +27,7 @@ public class DeadReckoning extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-
+    reset();
   }
   /**
    * When the method is called, the drivetrain is set to the speed and the time restarts 
@@ -42,8 +42,6 @@ public class DeadReckoning extends CommandBase {
   @Override
   public void execute() {
     // if button is pressed, then reset the timer
-    if( Robot.oi.getDeadReckoningButton() )
-      reset();
 
     // If current time - start time is more than or equal to the desired seconds, then stop.
     if( Timer.getFPGATimestamp() - startTime >= seconds ) 

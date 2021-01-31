@@ -39,8 +39,8 @@ public class Drivetrain extends SubsystemBase {
 
   public void drive( double speed )
   {
-    Hardware.Drivetrain.LEFT.set(ControlMode.PercentOutput, speed );
-    Hardware.Drivetrain.RIGHT.set(ControlMode.PercentOutput, speed );
+    Hardware.Drivetrain.LEFT.set(ControlMode.PercentOutput, -speed );
+    Hardware.Drivetrain.RIGHT.set(ControlMode.PercentOutput, -speed );
     
     totalDistance = drivetrainSim.getLeftPositionMeters();
   }
@@ -54,12 +54,12 @@ public class Drivetrain extends SubsystemBase {
   private void updateDashboard()
   {
     //divide by RobotController.getInputVoltage() to get a number between within 0 and 1;
-    SmartDashboard.putNumber("Left Motor Speed", Hardware.Drivetrain.LEFT.getMotorOutputVoltage() / RobotController.getInputVoltage() );
-    SmartDashboard.putNumber("Right Motor Speed", Hardware.Drivetrain.RIGHT.getMotorOutputVoltage() / RobotController.getInputVoltage() );
+    SmartDashboard.putNumber("Left Motor Output", Hardware.Drivetrain.LEFT.getMotorOutputVoltage() / RobotController.getInputVoltage() );
+    SmartDashboard.putNumber("Right Motor Output", Hardware.Drivetrain.RIGHT.getMotorOutputVoltage() / RobotController.getInputVoltage() );
 
     //Subtract totalDistance to ensure the distance displayed is from when the timer resets.
-    SmartDashboard.putNumber("Position (m)", drivetrainSim.getLeftPositionMeters() - totalDistance );
-
+    SmartDashboard.putNumber("Net Position (m)", drivetrainSim.getLeftPositionMeters() - totalDistance );
+    SmartDashboard.putNumber("Gross Position (m)", drivetrainSim.getLeftPositionMeters()  );
 
     SmartDashboard.putBoolean("Dead Reckoning Button", Robot.oi.getDeadReckoningButton() );    
   }
@@ -74,6 +74,11 @@ public class Drivetrain extends SubsystemBase {
     return lbs/2.2;
   }
   
+  public double compareToPosition( double tar )
+  {
+    return tar - drivetrainSim.getLeftPositionMeters() ;
+  }
+
   /**
    * converts inches to meters
    * @param in    inches

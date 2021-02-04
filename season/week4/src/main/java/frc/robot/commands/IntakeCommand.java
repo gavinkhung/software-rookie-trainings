@@ -4,47 +4,37 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class PDCommand extends CommandBase {
-  /** Creates a new Drive. */
-
-  public PDCommand() {
+public class IntakeCommand extends CommandBase {
+  /** Creates a new IntakeCommand. */
+  public IntakeCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.drivetrain);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {
-
-  }
-  /**
-   * When the method is called, the drivetrain is set to the speed and the time restarts 
-   */
-  public void reset(){
-    
-  }
+  public void initialize() {}
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double voltage = Robot.drivetrain.voltageToDistance(3);
-    Robot.drivetrain.drive(voltage);
+    Robot.intake.runIntake(.3);
   }
-
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.drivetrain.stop();
+    Robot.intake.stopIntake();
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-   // return !Robot.oi.getPDButton();
+    if(Robot.intake.getBreakbream()== true)
+      return true;
     return false;
   }
 }

@@ -16,6 +16,11 @@ public final class Hardware {
         public static final Encoder encoder = new Encoder(0, 1);
   
         public static final EncoderSim encoderSim = new EncoderSim(encoder);
+
+        public static final WPI_TalonSRX leftMaster = new WPI_TalonSRX(1);
+        public static final WPI_TalonSRX rightMaster = new WPI_TalonSRX(2);
+        public static final WPI_TalonSRX leftFollower = new WPI_TalonSRX(3);
+        public static final WPI_TalonSRX rightFollower = new WPI_TalonSRX(4);
     }
 
 }

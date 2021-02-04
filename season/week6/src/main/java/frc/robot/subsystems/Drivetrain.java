@@ -4,6 +4,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.simulation.BatterySim;
 import edu.wpi.first.wpilibj.simulation.DifferentialDrivetrainSim;
@@ -18,7 +21,7 @@ import frc.robot.Robot;
 
 public class Drivetrain extends SubsystemBase {
 
-  private DifferentialDrivetrainSim drivetrainSim;
+  private DifferentialDrivetrainSim drivetrainSim;  
 
   double lastTime = 0;
   double lastError = 0;
@@ -28,6 +31,9 @@ public class Drivetrain extends SubsystemBase {
   double lastOutput = 0;
 
   public Drivetrain() {
+
+    Hardware.Drivetrain.leftFollower.follow(leftMaster);
+    Hardware.Drivetrain.rightFollower.follow(rightMaster);
 
     //initialize drivetrain simulation with parameters
     drivetrainSim = new DifferentialDrivetrainSim(Hardware.Drivetrain.DRIVE_MOTOR,                     //Drive Motor ( Falcon500(2) )
@@ -73,10 +79,14 @@ public class Drivetrain extends SubsystemBase {
 
   public void drive(double output){
     drivetrainSim.setInputs(output, output); // Gives the drivetrain Sim the calculated motor ouput
+    Hardware.Drivetrain.leftMaster.set(ControlMode.PercentOutput, output);
+    Hardware.Drivetrain.rightMaster.set(ControlMode.PercentOutput, output);
   }
 
   public void stop(){
     drivetrainSim.setInputs(0, 0); // Gives the drivetrain Sim the calculated motor ouput
+    Hardware.Drivetrain.leftMaster.set(ControlMode.PercentOutput, 0);
+    Hardware.Drivetrain.rightMaster.set(ControlMode.PercentOutput, 0);
   }
   
   private void updateDashboard()

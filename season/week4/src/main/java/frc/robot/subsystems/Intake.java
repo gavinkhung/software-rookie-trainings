@@ -31,13 +31,10 @@ public class Intake extends SubsystemBase {
 
   public void runIntake(double speed){
     rightIntake.set(ControlMode.PercentOutput, speed);
-    SmartDashboard.putNumber("Motor Output", speed);
-
   }
 
   public void stopIntake(){
     rightIntake.set(ControlMode.PercentOutput, 0);
-    SmartDashboard.putNumber("Motor Output", 0);
   }
 
   public boolean getBreakbream() {
@@ -47,6 +44,7 @@ public class Intake extends SubsystemBase {
 
   @Override
   public void periodic() {
+        SmartDashboard.putNumber("Motor Output", rightIntake.getMotorOutputPercent());
         SmartDashboard.putBoolean("Breakbeam Reading", breakbream.get());
   }
 }

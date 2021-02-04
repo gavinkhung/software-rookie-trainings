@@ -32,8 +32,8 @@ public class Drivetrain extends SubsystemBase {
 
   public Drivetrain() {
 
-    Hardware.Drivetrain.leftFollower.follow(leftMaster);
-    Hardware.Drivetrain.rightFollower.follow(rightMaster);
+    Hardware.Drivetrain.leftFollower.follow(Hardware.Drivetrain.leftMaster);
+    Hardware.Drivetrain.rightFollower.follow(Hardware.Drivetrain.rightMaster);
 
     //initialize drivetrain simulation with parameters
     drivetrainSim = new DifferentialDrivetrainSim(Hardware.Drivetrain.DRIVE_MOTOR,                     //Drive Motor ( Falcon500(2) )
@@ -93,7 +93,7 @@ public class Drivetrain extends SubsystemBase {
   {
     //divide by RobotController.getInputVoltage() to get a number between within 0 and 1;
     SmartDashboard.putNumber("Last Error", lastError);
-    SmartDashboard.putNumber("Motor Output [-1 to 1]", lastOutput);
+    SmartDashboard.putNumber("Motor Output [-1 to 1]", Hardware.Drivetrain.leftMaster.getMotorOutputPercent());
     SmartDashboard.putNumber("Encoder Reading", Hardware.Drivetrain.encoder.getDistance());
 
     SmartDashboard.putBoolean("PID Button", Robot.oi.getPDButton() );    

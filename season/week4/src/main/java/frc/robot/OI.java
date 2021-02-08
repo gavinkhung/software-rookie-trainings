@@ -7,11 +7,11 @@ import frc.robot.commands.IntakeCommand;
 
 public class OI {
     
-    Joystick joy;
-    JoystickButton xButton;
+    // Joystick joy;
+    // JoystickButton xButton;
 
     public OI(){
-        joy = new Joystick(0);
+        // joy = new Joystick(0);
        // xButton = new JoystickButton(joy, 3);
 
         //xButton.whenPressed(new IntakeCommand());

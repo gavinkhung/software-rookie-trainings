@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import frc.robot.commands.BangBang;
 import frc.robot.commands.DeadReckoning;
-import frc.robot.commands.Drive;
 import frc.robot.subsystems.Drivetrain;
 
 /**
@@ -23,11 +22,11 @@ public class Robot extends TimedRobot {
 
   private RobotContainer m_robotContainer;
 
-  //Create OI object
-  public static OI oi = new OI();
-
   //Create Drivetrain object
   public static Drivetrain drivetrain = new Drivetrain();
+
+  //Create OI object
+  public static OI oi = new OI();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -94,7 +93,6 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-
     // Set the default command for drivetrain as the DeadReckoning command
     if( oi.getDeadReckoningButton() )
     {
@@ -102,9 +100,8 @@ public class Robot extends TimedRobot {
     } 
     if( oi.getBangBangButton() )
     {
-       new BangBang( 5, 1 ).schedule() ;
+       new BangBang( 5, 0.2 ).schedule() ;
     } 
-
   }
 
   @Override

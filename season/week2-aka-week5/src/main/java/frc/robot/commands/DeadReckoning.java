@@ -27,13 +27,6 @@ public class DeadReckoning extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    reset();
-  }
-  /**
-   * When the method is called, the drivetrain is set to the speed and the time restarts 
-   */
-  public void reset()
-  {
     Robot.drivetrain.drive( speed );
     startTime = Timer.getFPGATimestamp();
   }
@@ -59,7 +52,6 @@ public class DeadReckoning extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.drivetrain.stop();
   }
 
   // Returns true when the command should end.

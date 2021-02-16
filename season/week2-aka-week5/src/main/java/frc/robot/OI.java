@@ -5,17 +5,21 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 public class OI {
   
-    public static final Joystick         JOYSTICK = new Joystick(0);
-    public static final JoystickButton   DEAD_RECKONING_BUTTON = new JoystickButton( JOYSTICK, 1 ); // Dead Reckoning Button
-    public static final JoystickButton   BANGBANG_BUTTON = new JoystickButton( JOYSTICK, 2 );
+    public static Joystick joystick;
+    public static JoystickButton deadReckoningButton;
+    public static JoystickButton bangBangButton;
 
-    public boolean getDeadReckoningButton()
-    {        
-        return DEAD_RECKONING_BUTTON.get();
+    public OI(){
+        joystick = new Joystick(0);
+        deadReckoningButton = new JoystickButton(joystick, 1);
+        bangBangButton = new JoystickButton(joystick, 2);
     }
-    public boolean getBangBangButton()
-    {
-        return BANGBANG_BUTTON.get();
+
+    public boolean getDeadReckoningButton(){        
+        return deadReckoningButton.get();
+    }
+    public boolean getBangBangButton(){
+        return bangBangButton.get();
     }
     
 }

@@ -1,24 +1,13 @@
 [
   {
     "name": "week2-aka-week5 (in project week2-aka-week5)",
-    "file": "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5/build/libs/week2-aka-week5.jar",
+    "file": "C:\\Users\\gavin\\Personal\\School\\FRC 2021\\software_rookie_trainings\\season\\week2-aka-week5\\build\\libs\\week2-aka-week5.jar",
     "extensions": [
-      "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5/build/tmp/expandedArchives/halsim_gui-2021.2.1-osxx86-64.zip_d486575893732cad45e9b59326bc8aaa/osx/x86-64/shared/libhalsim_gui.dylib",
-      "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5/build/tmp/expandedArchives/halsim_ds_socket-2021.2.1-osxx86-64.zip_93f3f7d0cd7149c33a4ab2f56c0bd5f6/osx/x86-64/shared/libhalsim_ds_socket.dylib"
+      "C:\\Users\\gavin\\Personal\\School\\FRC 2021\\software_rookie_trainings\\season\\week2-aka-week5\\build\\tmp\\expandedArchives\\halsim_gui-2021.2.1-windowsx86-64.zip_d99e9955ea409a7181a100ca5ccfa1fc\\windows\\x86-64\\shared\\halsim_gui.dll",
+      "C:\\Users\\gavin\\Personal\\School\\FRC 2021\\software_rookie_trainings\\season\\week2-aka-week5\\build\\tmp\\expandedArchives\\halsim_ds_socket-2021.2.1-windowsx86-64.zip_298d0267aec4b74c1e06d46e7058a467\\windows\\x86-64\\shared\\halsim_ds_socket.dll"
     ],
     "env": {},
-    "librarydir": "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5/build/tmp/jniExtractDir",
-    "mainclass": "frc.robot.Main"
-  },
-  {
-    "name": "week2-aka-week5-Imported (in project week2-aka-week5-Imported)",
-    "file": "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5-Imported/build/libs/week2-aka-week5-Imported.jar",
-    "extensions": [
-      "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5-Imported/build/tmp/expandedArchives/halsim_gui-2021.2.1-osxx86-64.zip_d486575893732cad45e9b59326bc8aaa/osx/x86-64/shared/libhalsim_gui.dylib",
-      "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5-Imported/build/tmp/expandedArchives/halsim_ds_socket-2021.2.1-osxx86-64.zip_93f3f7d0cd7149c33a4ab2f56c0bd5f6/osx/x86-64/shared/libhalsim_ds_socket.dylib"
-    ],
-    "env": {},
-    "librarydir": "/Users/Sooraj/Documents/Programming/mvrt/2021/software_rookie_trainings/season/week2-aka-week5-Imported/build/tmp/jniExtractDir",
+    "librarydir": "C:\\Users\\gavin\\Personal\\School\\FRC 2021\\software_rookie_trainings\\season\\week2-aka-week5\\build\\tmp\\jniExtractDir",
     "mainclass": "frc.robot.Main"
   }
 ]

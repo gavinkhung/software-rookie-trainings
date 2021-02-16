@@ -9,8 +9,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 public final class Hardware {
 
     public final static class Drivetrain {
-        public static final WPI_TalonSRX     LEFT = new WPI_TalonSRX( 1 );
-        public static final WPI_TalonSRX     RIGHT = new WPI_TalonSRX( 2 );
+        public static final WPI_TalonSRX LEFT = new WPI_TalonSRX(1);
+        public static final WPI_TalonSRX RIGHT = new WPI_TalonSRX(2);
     }
 
 }

@@ -30,29 +30,30 @@ public class BangBang extends CommandBase {
   @Override
   public void execute() {
 
-    double marginoferror = 0.1; 
+    double marginoferror = 0.5; 
+    // if you did not reach the target, go forwards
     if( Robot.drivetrain.compareToPosition( target ) > marginoferror  )
     {
-      Robot.drivetrain.drive(-speed);
+      Robot.drivetrain.drive(speed);
       System.out.println("greater");
     }
+    // if you go too far, go backwards
     else if( Robot.drivetrain.compareToPosition( target ) < -marginoferror )
     {
-      Robot.drivetrain.drive(speed);
+      Robot.drivetrain.drive(-speed);
       System.out.println("less");
     }
+    // else, you are within the margin of error
     else
     {
       Robot.drivetrain.stop();
     }
-
-
-
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+  }
 
   // Returns true when the command should end.
   @Override

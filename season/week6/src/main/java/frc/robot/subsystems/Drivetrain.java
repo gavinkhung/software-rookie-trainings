@@ -26,7 +26,7 @@ public class Drivetrain extends SubsystemBase {
   double lastTime = 0;
   double lastError = 0;
 
-  // double totalError = 0;
+  double totalError = 0;
 
   double lastOutput = 0;
 
@@ -55,15 +55,12 @@ public class Drivetrain extends SubsystemBase {
     double errorRate = (error - lastError)/ dt;
 
     // if you want to PID
-    // if(error < 1 ){
-    //   totalError += error * dt;
-    // }
+    if(error < 1 ){
+       totalError += error * dt;
+    }
 
     // if you want to do PID
-    // motorOutput = Constants.Drivetrain.kP * error + Constants.Drivetrain.kI * errorSum + Constants.Drivetrain.kD * errorRate;
-
-    // if you want to do PD
-    lastOutput = Constants.Drivetrain.kP * error + Constants.Drivetrain.kD * errorRate;
+    motorOutput = Constants.Drivetrain.kP * error + Constants.Drivetrain.kI * errorSum + Constants.Drivetrain.kD * errorRate;
 
     if(lastOutput > 0)
       lastOutput = Math.min(1, lastOutput);

@@ -49,8 +49,10 @@ public class Drivetrain extends SubsystemBase {
 
     double errorRate = (error - lastError)/ dt;
 
-    // if you want to PID
-    if(error < 1 ){
+    // Integral range
+    // presents totalError from being too large.
+    // 1 is an arbitrary number and you can adjust it to be another number
+    if(Math.abs(error) < 1 ){
       totalError += error * dt;
     }
 

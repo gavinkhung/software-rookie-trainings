@@ -67,7 +67,8 @@ public class Drivetrain extends SubsystemBase {
     
     lastError = error;
     lastTime = Timer.getFPGATimestamp();
-
+    
+    // the right and left have opposite signs, because you want to turn
     Hardware.Drivetrain.right.set(ControlMode.PercentOutput, lastOutput);
     Hardware.Drivetrain.left.set(ControlMode.PercentOutput, -lastOutput);
     drivetrainSim.setInputs(-lastOutput, lastOutput);

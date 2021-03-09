@@ -49,8 +49,10 @@ public class Drivetrain extends SubsystemBase {
 
     double errorRate = (error - lastError)/ dt;
 
-    // if you want to PID
-    if(error < 1 ){
+    // Integral range
+    // presents totalError from being too large.
+    // 1 is an arbitrary number and you can adjust it to be another number
+    if(Math.abs(error) < 1 ){
       totalError += error * dt;
     }
 
@@ -65,7 +67,8 @@ public class Drivetrain extends SubsystemBase {
     
     lastError = error;
     lastTime = Timer.getFPGATimestamp();
-
+    
+    // the right and left have opposite signs, because you want to turn
     Hardware.Drivetrain.right.set(ControlMode.PercentOutput, lastOutput);
     Hardware.Drivetrain.left.set(ControlMode.PercentOutput, -lastOutput);
     drivetrainSim.setInputs(-lastOutput, lastOutput);

@@ -6,6 +6,7 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import edu.wpi.first.wpilibj.system.plant.DCMotor;
@@ -24,4 +25,13 @@ public class Hardware {
     public static WPI_TalonSRX rightLeader = new WPI_TalonSRX(2);
     public static WPI_TalonSRX leftFollower = new WPI_TalonSRX(3);
     public static WPI_TalonSRX rightFollower = new WPI_TalonSRX(4);
+
+    // intake
+    public static WPI_TalonSRX intakeRoller;
+
+    // hopper
+    public static WPI_TalonSRX hopperTopRoller;
+    public static WPI_TalonSRX hopperBottomRoller;
+    // dio port is the parameter
+    public static DigitalInput hopperBreakbream;
 }

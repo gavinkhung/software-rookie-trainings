@@ -6,9 +6,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.RunHopper;
+import frc.robot.commands.RunIntake;
+import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Hopper;
+import frc.robot.subsystems.Intake;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -22,6 +27,10 @@ public class RobotContainer {
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
+  // make an instance of all the subsystems
+  private final Intake intake = new Intake();
+  private final Hopper hopper = new Hopper();
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -34,7 +43,11 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    SmartDashboard.putData("Run Hopper", new RunHopper(hopper));
+    SmartDashboard.putData("Run Intake", new RunIntake(intake, true));
+    SmartDashboard.putData("Stop Intake", new RunIntake(intake, false));
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.

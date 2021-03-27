@@ -6,8 +6,10 @@ package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.simulation.AnalogGyroSim;
 import edu.wpi.first.wpilibj.simulation.EncoderSim;
 import edu.wpi.first.wpilibj.system.plant.DCMotor;
 
@@ -19,6 +21,9 @@ public class Hardware {
     // encoder will be used for a keep track of distance traveled
     public static Encoder encoder = new Encoder(0, 1);
     public static EncoderSim encoderSim = new EncoderSim(encoder);
+
+    public static AnalogGyro gyro = new AnalogGyro(1);
+    public static AnalogGyroSim gyroSim = new AnalogGyroSim(gyro);
 
     // these will be used for the drivetrain
     public static WPI_TalonSRX leftLeader = new WPI_TalonSRX(1);

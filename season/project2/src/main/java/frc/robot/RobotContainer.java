@@ -9,8 +9,10 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.RotateRobot;
 import frc.robot.commands.RunHopper;
 import frc.robot.commands.RunIntake;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.Hopper;
 import frc.robot.subsystems.Intake;
@@ -28,6 +30,7 @@ public class RobotContainer {
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
   // make an instance of all the subsystems
+  private final Drivetrain drivetrain = new Drivetrain();
   private final Intake intake = new Intake();
   private final Hopper hopper = new Hopper();
 
@@ -47,6 +50,9 @@ public class RobotContainer {
     SmartDashboard.putData("Run Hopper", new RunHopper(hopper));
     SmartDashboard.putData("Run Intake", new RunIntake(intake, true));
     SmartDashboard.putData("Stop Intake", new RunIntake(intake, false));
+
+    SmartDashboard.putData("Rotate Robot 0 degrees", new RotateRobot(drivetrain, 0));
+    SmartDashboard.putData("Rotate Robot 90 degrees", new RotateRobot(drivetrain, 90));
   }
 
   /**
